@@ -1,20 +1,11 @@
 <?php
 
 require_once("Database.php");
-$usuario = $_POST["usuario"];
+$email = $_POST["email"];
 $pass = $_POST["pass"];
 
 $conexion = new DataBase();
-
-$respuesta= $conexion->query("select * from usuario");
-
-foreach ($respuesta as $respuestas){
-    echo "id: " . $respuestas["id"] . "<br>";
-    echo "usuario: " . $respuestas["email"] . "<br>";
-    echo "password: " . $respuestas["password"] . "<br>";
-}
-
-/*if ($usuario == "aa" && $pass == "123"){
+if ($conexion->validarUsuario($email,$pass)){
     session_start();
     $_SESSION["session"] = true;
     header("location:landing.php");
@@ -23,4 +14,4 @@ foreach ($respuesta as $respuestas){
     session_destroy();
     header("location:index.php");
     exit();
-}*/
+}

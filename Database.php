@@ -19,4 +19,7 @@ class DataBase{
     public function execute($sql){
         $this->conexion->query($sql);
     }
+    public function validarUsuario($email,$pass){
+        return $this->query("select * from usuario where email ='".$email . "' and password = '".$pass."'");
+    }
 }
