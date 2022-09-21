@@ -1,10 +1,18 @@
 <?php
-echo "<form action='validar.php' method='post' enctype='multipart/form-data' >
-    <label for='usuario'>Usuario:</label>
-    <input type='text' name='usuario'>
-    <label for='pass'>Contraseña:</label>
-    <input type='password' name='pass'>
-    <label for='pass'>Repeti contraseña:</label>
-    <input type='password' name='pass'>
-    <input type='submit'>
-</form>";
+require_once("Database.php");
+$email = $_POST["email"];
+$pass = $_POST["pass"];
+$pass2 = $_POST["pass2"];
+
+
+$conexion = new DataBase();
+
+if($pass == $pass2){
+    $conexion->crearUsuario($email,$pass);
+    header("location:login.php");
+    exit();
+}else{
+    session_destroy();
+    header("location:registro.php");
+    exit();
+}

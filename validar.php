@@ -7,7 +7,7 @@ $conexion = new DataBase();
 if ($conexion->validarUsuario($email,$pass)){
     session_start();
     $_SESSION["session"] = true;
-    header("location:landing.php");
+    header("location:admin.php");
     exit();
 }else{
     session_destroy();

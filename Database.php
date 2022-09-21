@@ -22,4 +22,7 @@ class DataBase{
     public function validarUsuario($email,$pass){
         return $this->query("select * from usuario where email ='".$email . "' and password = '".$pass."'");
     }
+    public function crearUsuario($email,$pass){
+        return $this->execute("INSERT INTO usuario(`email`, `password`) VALUES ('".$email ."','".$pass."')");
+    }
 }
