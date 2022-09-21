@@ -1,11 +1,10 @@
 <?php
-
-
-$usuario = $_POST["usuario"];
+require_once("Database.php");
+$email = $_POST["email"];
 $pass = $_POST["pass"];
 
-
-if ($usuario == "aa" && $pass == "123"){
+$conexion = new DataBase();
+if ($conexion->validarUsuario($email,$pass)){
     session_start();
     $_SESSION["session"] = true;
     header("location:landing.php");
