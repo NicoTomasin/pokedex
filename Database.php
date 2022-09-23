@@ -25,4 +25,6 @@ class DataBase{
     public function crearUsuario($email,$pass){
         return $this->execute("INSERT INTO usuario(`email`, `password`) VALUES ('".$email ."','".$pass."')");
     }
+
+
 }
