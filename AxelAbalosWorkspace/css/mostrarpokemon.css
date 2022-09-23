@@ -1,0 +1,50 @@
+
+.pokemon{
+
+    height: 90px;
+    background-color: #242323;
+    color: aliceblue;
+    display:flex;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+}
+.imagenpokemon{
+
+
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
+.descripcion
+{
+    height: 60px;
+    background-color: #242323;
+    color: aliceblue;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+
+}
+.poke
+{
+    max-height: 250px;
+    width: auto;
+}
+
+.divdeltipo
+{
+
+    display:flex;
+    text-align: center;
+    justify-content: center;
+
+
+}
+.imagentipo
+{ display: block;
+
+    height: 80px;
+    width: 80px;
+
+}
