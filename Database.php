@@ -11,7 +11,12 @@ class DataBase{
     }
     public function query($sql){
         $respuesta =  $this->conexion->query($sql);
-        return $respuesta->fetch_all(MYSQLI_ASSOC);
+        if($respuesta){
+            return $respuesta->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return null;
+        }
+
     }
     public function __destruct (){
         $this->conexion->close();
@@ -25,6 +30,19 @@ class DataBase{
     public function crearUsuario($email,$pass){
         return $this->execute("INSERT INTO usuario(`email`, `password`) VALUES ('".$email ."','".$pass."')");
     }
+    public function obtenerTodosLosPokemones(){
+        return $this->query("SELECT * FROM `pokemones` WHERE 1");
+    }
+    public function eliminarPokemon($id){
+        return $this->execute("DELETE FROM pokemones where ".$id." = id");
+    }
+    public function obtenerUnPokemon($nombre){
+        $query = $this->query("SELECT * FROM pokemones where '". $nombre ."' = `nombre`");
+        if($query){
+            return $query;
+        }else{
+            return $this->obtenerTodosLosPokemones();
+        }
 
-
+    }
 }
