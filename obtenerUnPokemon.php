@@ -9,27 +9,45 @@ error_reporting(0);
 <link rel="stylesheet" href="css/styles.css">
 <body>
 <div class="container">
-    <div id="fondo">
+    <?php
+    if ($_SESSION["session"] == "true") {
+        echo '<div class="container">
         <div class="row">
             <div class="col-1">
-                <a href="index.php"><img class="logo" src="img/logo.png"></a>
+                <img class="logo" src="img/logo.png">
             </div>
             <div class="col-5 text-center">
-                <img src="img/pokemon.png" height="80">
+                <h1>Pokedex</h1>
             </div>
-            <div class="col-6">
-                <form action='login.php' method='post'>
-                    <input name='usuario' type='text' placeholder='Usuario'>
-                    <input name='pass' type='password' placeholder='Contraseña'>
-                    <button id='login' type='submit'>Ingresar</button>
-                </form>
+            <div class="col-6 text-end">
+                <h4>usuario ADMIN</h4>
+                <a href="cerrarSession.php">Salir</a>
             </div>
         </div>
         <?php
         require_once "./Componentes/buscador.php"
         ?>
     </div>
-
+    </div>';
+    } else {
+        echo '<div id="fondo">
+  <div class="row">
+      <div class="col-1">
+          <a href="index.php"><img class="logo" src="img/logo.png"></a>
+      </div>
+      <div class="col-5 text-center">
+          <img src="img/pokemon.png" height="80">
+      </div>
+      <div class="col-6">
+          <form action="login.php" method="post">
+              <input name="usuario" type="text" placeholder="Usuario">
+              <input name="pass" type="password" placeholder="Contraseña">
+              <button id="login" type="submit">Ingresar</button>
+          </form>
+      </div>
+  </div></div>';
+    }
+    ?>
     <div id="fondo" class="row mt-5">
         <div class="col-2 text-center">
             <h3>Imagen</h3>
@@ -44,68 +62,65 @@ error_reporting(0);
             <h3>Nombre</h3>
         </div>
         <?php
-        if(isset($_SESSION)){
-            if($_SESSION["session"]=="true"){
-                echo"<div class='col-4 text-center'>
+        if (isset($_SESSION)) {
+            if ($_SESSION["session"] == "true") {
+                echo "<div class='col-4 text-center'>
                 <h3>Acciones</h3>
                 </div>";
             }
         }
         ?>
-    </div>
-    <div id="fondo" class="row">
-        <?php
-        require_once("Database.php");
-        $pokemon = isset( $_POST["pokemon"])?$_POST["pokemon"] : "";
-        $pokemon = strtolower($pokemon);
-        $bdd = new DataBase();
-        $consulta = $bdd->obtenerUnPokemon($pokemon);
-        $arrLength = count($consulta);
-        for ($i=0;$i<$arrLength; $i++){
-            $numero = $consulta[$i]['numero'];
-            $nombre = $consulta[$i]['nombre'];
-            $urlTipo = './img/'.$consulta[$i]['tipo'] . '.jpg';
-            $urlImg = "./img/" . $consulta[$i]['imagen'];
-            $id = $consulta[$i]['id'];
-            echo " <div class='row mt-5'>";
-            echo " <div class='col-2 text-center'>
+
+        <div id="fondo" class="row">
+            <?php
+            require_once("Database.php");
+            $pokemon = isset($_POST["pokemon"]) ? $_POST["pokemon"] : "";
+            $pokemon = strtolower($pokemon);
+            $bdd = new DataBase();
+            $consulta = $bdd->obtenerUnPokemon($pokemon);
+            $arrLength = count($consulta);
+            for ($i = 0; $i < $arrLength; $i++) {
+                $numero = $consulta[$i]['numero'];
+                $nombre = $consulta[$i]['nombre'];
+                $urlTipo = './img/' . $consulta[$i]['tipo'] . '.jpg';
+                $urlImg = "./img/" . $consulta[$i]['imagen'];
+                $id = $consulta[$i]['id'];
+                echo " <div class='row mt-5'>";
+                echo " <div class='col-2 text-center'>
           <img class='imgPokemon' src=$urlImg>
           </div>";
-            echo " <div class='col-2 text-center'>
+                echo " <div class='col-2 text-center'>
           <img class='imgTipo' src=$urlTipo>
           </div>";
-            echo " <div class='col-2 text-center'>
+                echo " <div class='col-2 text-center'>
           <h3>$numero</h3>
           </div>";
-            echo " <div class='col-2 text-center'>
+                echo " <div class='col-2 text-center'>
           <a id='hrefNombre' href='pokemon.php?id=" . $numero . "'<h3>$nombre</h3></a>
           </div>";
-            if($_SESSION["session"]=="true"){
-                echo" <div class='col-2 text-center'>
+                if ($_SESSION["session"] == "true") {
+                    echo " <div class='col-2 text-center'>
           <a id='hrefModificacion' href='modificacion.php?id=" . $id . "&" . "tipo=" . $consulta[$i]['tipo'] . "&" . "numero=" . $numero . "&" . "nombre=" . $nombre . "' >Modificacion</a>
           </div>";
-                echo"
+                    echo "
           <div class='col-2 text-center'>
           <a id='hrefBaja' href='eliminarPokemon.php?id_pokemon=" . $id . "' >Baja</a>
           </div>";
+                }
+                echo " </div>";
             }
-            echo " </div>";
-        }
+            ?>
+        </div>
+        <div class="row">
+            <?php
+            if ($_SESSION["session"] == "true") {
+                $variable = "<a id='botonCrear' href='nuevoPokemon.php'><button>Crear nuevo pokemon</button></a>";
+                echo $variable;
+            }
+            ?>
 
-
-
-        ?>
+        </div>
     </div>
-    <div class="row">
-        <?php
-        if($_SESSION["session"]=="true") {
-            $variable = "<a id='botonCrear' href='nuevoPokemon.php'><button>Crear nuevo pokemon</button></a>";
-            echo $variable;
-        }
-        ?>
-
-    </div>
-</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
