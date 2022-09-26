@@ -64,7 +64,7 @@
     <div class="row">
         <?php
         if($_SESSION["session"]=="true") {
-            $variable = "<a id='botonCrear' href='nuevoPokemon.php'><button>Crear nuevo pokemon</button></a>";
+            $variable = "<a id='botonCrear' href='altaPokemon.php'><button>Crear nuevo pokemon</button></a>";
             echo $variable;
         }
         ?>

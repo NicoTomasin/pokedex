@@ -45,4 +45,7 @@ class DataBase{
         }
 
     }
+    public function darAltaPokemon($numero,$tipo,$nombre,$descripcion,$imagen){
+        return $this->execute("INSERT INTO pokemones ( numero , tipo, nombre, descripcion, imagen) VALUES ('".$numero."','".$tipo."','".$nombre."','".$descripcion."','".$imagen."')");
+    }
 }
