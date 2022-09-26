@@ -34,6 +34,11 @@ body{
     margin-left: 5%;
     width: 80%;
 }
+label{
+    color: #3b4cca;
+    font-size: 20px;
+    text-align: center;
+}
 
 .imgPokemon{
     width: 95px;
