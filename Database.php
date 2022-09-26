@@ -48,4 +48,7 @@ class DataBase{
     public function darAltaPokemon($numero,$tipo,$nombre,$descripcion,$imagen){
         return $this->execute("INSERT INTO pokemones ( numero , tipo, nombre, descripcion, imagen) VALUES ('".$numero."','".$tipo."','".$nombre."','".$descripcion."','".$imagen."')");
     }
+    public function editarPokemon($numero,$tipo,$nombre,$descripcion,$imagen){
+        return $this->execute("UPDATE `pokemones` SET `numero`='".$numero."',`tipo`='".$tipo."',`nombre`='".$nombre."',`descripcion`='".$descripcion."',`imagen`='".$imagen."' WHERE `numero`='".$numero."' AND `tipo`='".$tipo."'");
+    }
 }

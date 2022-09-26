@@ -46,7 +46,7 @@
           <a id='hrefNombre' href='pokemon.php?id=" . $numero . "'<h3>$nombre</h3></a>
           </div>";
                     if($_SESSION["session"]=="true"){
-                        echo" <div class='col-2 text-center'>
+                        echo"<div class='col-2 text-center'>
           <a id='hrefModificacion' href='modificacion.php?id=" . $id . "&" . "tipo=" . $consulta[$i]['tipo'] . "&" . "numero=" . $numero . "&" . "nombre=" . $nombre . "' >Modificacion</a>
           </div>";
                         echo"
