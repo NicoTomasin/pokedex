@@ -38,6 +38,10 @@ class DataBase{
     }
     public function obtenerUnPokemon($nombre){
         $query = $this->query("SELECT * FROM pokemones where '". $nombre ."' = `nombre`");
+        if(!$query){
+            $query = $this->query("SELECT * FROM pokemones where '". $nombre ."' = `numero`");
+        }
+
         if($query){
             return $query;
         }else{

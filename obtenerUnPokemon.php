@@ -4,8 +4,7 @@ error_reporting(0);
 
 ?>
 <html>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="css/styles.css">
 <body>
 <div class="container">
@@ -14,7 +13,7 @@ error_reporting(0);
         echo '<div class="container">
         <div class="row">
             <div class="col-1">
-                <img class="logo" src="img/logo.png">
+                <a href="index.php"><img class="logo" src="img/logo.png"></a>
             </div>
             <div class="col-5 text-center">
                 <h1>Pokedex</h1>
@@ -24,12 +23,14 @@ error_reporting(0);
                 <a href="cerrarSession.php">Salir</a>
             </div>
         </div>
-        <?php
-        require_once "./Componentes/buscador.php"
-        ?>
-    </div>
+        
+   </div>
     </div>';
+
+        require_once "./Componentes/buscador.php";
+
     } else {
+
         echo '<div id="fondo">
   <div class="row">
       <div class="col-1">
@@ -43,9 +44,12 @@ error_reporting(0);
               <input name="usuario" type="text" placeholder="Usuario">
               <input name="pass" type="password" placeholder="Contraseña">
               <button id="login" type="submit">Ingresar</button>
-          </form>
-      </div>
-  </div></div>';
+          </form>  
+      </div>';
+        require_once "./Componentes/buscador.php";
+       echo ' </div>
+  </div>';
+        require_once "./Componentes/buscador.php";
     }
     ?>
     <div id="fondo" class="row mt-5">

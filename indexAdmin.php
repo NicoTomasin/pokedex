@@ -20,7 +20,7 @@ if(!isset($_SESSION["session"]) || $_SESSION["session"] != true) {
             <div class="col-6">
                 <div class="col-6 text-end">
                     <h4>usuario ADMIN</h4>
-                    <a href="cerrarSession.php">Salir</a>
+                    <a id="login" href="cerrarSession.php">Salir</a>
 
                 </div>
         </div>

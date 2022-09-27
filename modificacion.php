@@ -12,9 +12,10 @@ error_reporting(0);
     <?php
     if ($_SESSION["session"] == "true") {
         echo '<div class="container">
+        <div id="fondo">
         <div class="row">
             <div class="col-1">
-                <img class="logo" src="img/logo.png">
+                 <a href="index.php"><img class="logo" src="img/logo.png"></a>
             </div>
             <div class="col-5 text-center">
                 <h1>Pokedex</h1>
@@ -27,6 +28,7 @@ error_reporting(0);
         <?php
         require_once "./Componentes/buscador.php"
         ?>
+    </div>
     </div>
     </div>';
     } else {
@@ -91,29 +93,33 @@ error_reporting(0);
           <a id='hrefNombre' href='pokemon.php?id=" . $numero . "'<h3>$nombre</h3></a>
           </div>";
                 echo " </div>";
-                echo '<form action="editarPokemon.php" class="col" method="POST" enctype="multipart/form-data">
+                echo '<form action="editarPokemon.php" class="col" method="POST" enctype="multipart/form-data" style="margin-left: 180px; margin-right: 180px;">
             <div class="row">
                 <label>Numero Pokedex:</label>
                 <input required type="text" name="numero_id">
-            </div>
+            </div><br>
             <div class="row">
                 <label>Nombre:</label>
                 <input required type="text" name="nombre">
-            </div>
+            </div><br>
             <div class="row ">
                 <label>Tipo:</label>
                 <input required type="text" name="tipo">
-            </div>
+            </div><br>
             <div class="row">
                 <label>Descripcion:</label>
                 <input required type="text" name="descripcion">
-            </div>
+            </div><br>
             <div class="row">
                 <label>Añadir imagen:</label>
-                <input required name="archivo" id="archivo" type="file"/>
+                <center>
+                <input required name="archivo" id="archivo" type="file"/><br><br>
+                 </center>
             </div>
             <div class="row">
-                <input type="submit" name="subir" class="btn btn-secondary btn-lg" value="Enviar">
+            <center>
+                 <input type="submit" name="subir" id="login" value="Enviar" style="width: 100px;margin-top: 15px;">
+            </center>
             </div>
         </form>';
             }

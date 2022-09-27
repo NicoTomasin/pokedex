@@ -68,7 +68,7 @@ if(!isset($_SESSION["session"]) || $_SESSION["session"] != true) {
                     <input required name="archivo" id="archivo" type="file"/>
                 </div>
                 <div class="row">
-                    <input type="submit" name="subir" class="btn btn-secondary btn-lg" value="Enviar">
+                    <input type="submit" name="subir" class="btn btn-secondary btn-lg" value="Enviar" style="width: 100px;">
                 </div>
             </form>
             </div>

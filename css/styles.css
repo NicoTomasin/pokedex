@@ -41,14 +41,14 @@ label{
 }
 
 .imgPokemon{
-    width: 95px;
-    height: 100px;
-    margin-top: -25px;
+    height: 150px;
+    margin-top: -35px;
+
 }
 
 .imgTipo{
     width: 65px;
-    height: 25px;
+
 
 }
 
@@ -172,4 +172,8 @@ label{
 .contenedor{
     display: flex;
     flex-wrap: nowrap;
+}
+a{
+    text-decoration: none;
+
 }
