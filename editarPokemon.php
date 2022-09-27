@@ -26,17 +26,19 @@ include_once("Database.php");
 $numero = isset($_POST["numero_id"]) ? $_POST["numero_id"] : "";
 $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 $tipo = isset($_POST["tipo"]) ? $_POST["tipo"] : "";
+$idAntiguo = isset($_GET["idAntiguo"]) ? $_GET["idAntiguo"] : "";
 $descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : "";
 $imagen = isset($_FILES["archivo"]["name"]) ? $_FILES["archivo"]["name"] : "";
 
 $conexion = new DataBase();
 //genero la consulta y la ejecuto
-if (!($conexion->editarPokemon($numero, $tipo, $nombre, $descripcion, $imagen))) {
+if (!($conexion->editarPokemon($numero, $tipo, $nombre, $descripcion, $imagen,$idAntiguo ))) {
     header('Location: indexAdmin.php');
     exit();
 } else {
     header('Location: indexAdmin.php');
     exit();
 }
+
 
 

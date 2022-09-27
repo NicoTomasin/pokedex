@@ -93,35 +93,35 @@ error_reporting(0);
           <a id='hrefNombre' href='pokemon.php?id=" . $numero . "'<h3>$nombre</h3></a>
           </div>";
                 echo " </div>";
-                echo '<form action="editarPokemon.php" class="col" method="POST" enctype="multipart/form-data" style="margin-left: 180px; margin-right: 180px;">
-            <div class="row">
+                echo "<form action='editarPokemon.php?idAntiguo=" . $numero ."' class='col' method='POST' enctype='multipart/form-data' style='margin-left: 180px; margin-right: 180px;'>
+            <div class='row'>
                 <label>Numero Pokedex:</label>
-                <input required type="text" name="numero_id">
+                <input required type='text' name='numero_id'>
             </div><br>
-            <div class="row">
+            <div class='row'>
                 <label>Nombre:</label>
-                <input required type="text" name="nombre">
+                <input required type='text' name='nombre'>
             </div><br>
-            <div class="row ">
+            <div class='row'>
                 <label>Tipo:</label>
-                <input required type="text" name="tipo">
+                <input required type='text' name='tipo'>
             </div><br>
-            <div class="row">
+            <div class='row'>
                 <label>Descripcion:</label>
-                <input required type="text" name="descripcion">
+                <input required type='text' name='descripcion'>
             </div><br>
-            <div class="row">
+            <div class='row'>
                 <label>Añadir imagen:</label>
                 <center>
-                <input required name="archivo" id="archivo" type="file"/><br><br>
+                <input required name='archivo' id='archivo' type='file'/><br><br>
                  </center>
             </div>
-            <div class="row">
+            <div class='row'>
             <center>
-                 <input type="submit" name="subir" id="login" value="Enviar" style="width: 100px;margin-top: 15px;">
+                 <input type='submit' name='subir' id='login' value='Enviar' style='width: 100px;margin-top: 15px;'>
             </center>
             </div>
-        </form>';
+        </form>";
             }
             ?>
         </div>
